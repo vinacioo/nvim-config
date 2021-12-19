@@ -45,8 +45,8 @@ nvim_lsp.jsonls.setup {
 }
 
  -- sumneko lua
-local sumneko_root_path = "/home/vagner/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin"
-local sumneko_binary = "/home/vagner/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
+local sumneko_root_path = "$HOME/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin"
+local sumneko_binary = "$HOME/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
 
 require'lspconfig'.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},

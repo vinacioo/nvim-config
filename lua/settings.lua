@@ -84,7 +84,7 @@ end
 vim.api.nvim_exec([[
 " Always use the same virtualenv for vim, regardless of what Python
 " environment is loaded in the shell from which vim is launched
-let g:vim_virtualenv_path = '/home/vagner/.env/py3_9/jupyter'
+let g:vim_virtualenv_path = '$HOME/.env/py3_9/jupyter'
 if exists('g:vim_virtualenv_path')
     pythonx import os; import vim
     pythonx activate_this = os.path.join(vim.eval('g:vim_virtualenv_path'), 'bin/activate_this.py')
@@ -92,7 +92,7 @@ if exists('g:vim_virtualenv_path')
 endif
 
 if has('nvim')
-    let g:python3_host_prog = '/home/vagner/.env/py3_9/jupyter/bin/python'
+    let g:python3_host_prog = '$HOME/.env/py3_9/jupyter/bin/python'
 else
     set pyxversion=3
 endif
