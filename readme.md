@@ -9,3 +9,6 @@ From inside nvim run:
 ```
 :PackerSync
 ```
+
+Screenshot with gruvbox-material.
+![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshot.png)
