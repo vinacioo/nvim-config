@@ -1,6 +1,6 @@
-# nvim-config
+# Neovim Config
 
-My neovim configuration in lua.
+My neovim configuration in lua specially for python, latex and markdown.
 
 ## Install
 
@@ -15,13 +15,15 @@ Then:
 ```
 
 Screenshots with custom minimal.nvim colorscheme:
+
+Python:
 ![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python1.)
 
-Python and Qt-Console:
+Python and Iron Repl:
 ![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python2.png)
 
 Latex and Zathura:
 ![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/latex.png)
 
-Markdown:
+Markdown with Qute Browser:
 ![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/markdown.png)
