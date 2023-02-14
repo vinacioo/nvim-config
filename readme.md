@@ -17,7 +17,7 @@ Then:
 Screenshots with custom minimal.nvim colorscheme:
 
 Python:
-![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python1.)
+![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python1.png)
 
 Python and Iron Repl:
 ![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python2.png)
