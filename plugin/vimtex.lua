@@ -23,11 +23,9 @@ cmd([[
 cmd([[
   au VimEnter * highlight SpellBad ctermfg=011 ctermbg=009 guifg=#282828 guibg=#ffff00
 ]])
--- vim.api.nvim_exec([[ autocmd BufNewFile,BufRead *.md,*.tex setlocal spell spelllang=pt,en_us ]], false)
 
 cmd([[
   autocmd FileType tex setlocal indentexpr=
 ]])
 
 cmd([[let g:vimtex_compiler_latexmk = {'build_dir' : 'build'}]])
-

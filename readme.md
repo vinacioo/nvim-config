@@ -1,20 +1,27 @@
 # nvim-config
-My neovim configuration in lua. 
+
+My neovim configuration in lua.
 
 ## Install
+
 ```
 > git clone https://github.com/vinacioo/nvim-config.git ~/.config/nvim
 ```
-From inside nvim run:
+
+Then:
+
 ```
 :PackerSync
 ```
 
-Config with gruvbox-material.
-![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/screenshot.png)
+Screenshots with custom minimal.nvim colorscheme:
+![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python1.)
 
-Python and Qt-Console: 
-![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/screenshot-qtconsole.png)
+Python and Qt-Console:
+![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/python2.png)
 
 Latex and Zathura:
-![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/screenshot-vimtex-zathura.png)
+![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/latex.png)
+
+Markdown:
+![alt text](https://github.com/vinacioo/nvim-config/blob/master/screenshots/markdown.png)

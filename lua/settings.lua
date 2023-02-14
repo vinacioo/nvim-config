@@ -1,99 +1,92 @@
-vim.cmd('filetype plugin indent on')
-local exec = vim.api.nvim_exec
-local set = vim.opt
-local cmd = vim.cmd
+local opt = vim.opt
+local g = vim.g
 
-set.clipboard = "unnamedplus"
-set.cmdheight = 1
-set.ruler = false
-set.hidden = false
-set.swapfile = false
-set.ignorecase = true
-set.smartcase = true
-set.mouse = "a"
-set.number = true
-set.numberwidth = 2
-set.relativenumber = true
-set.expandtab = true
-set.shiftwidth = 2
-set.smartindent = true
-set.tabstop = 8
-set.timeoutlen = 400
-set.updatetime = 250
-set.undofile = true
-set.termguicolors = true
-set.splitbelow = true
-set.splitright = false
-set.signcolumn = "yes"
-set.cul = true -- cursor line
-set.title = true
-vim.wo.colorcolumn = '79'
-vim.wo.cursorline = false
+-- colorcolumn
+opt.colorcolumn = "79"
+opt.cursorline = true
 
-exec([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=400, on_visual=true}
-  augroup end
-]], false)
+-- numbers
+opt.number = true
+g.mapleader = "\\"
 
--- Don't show any numbers inside terminals
-cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
+opt.clipboard = "unnamedplus"
 
--- Don't show any numbers inside terminals
-cmd [[ au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal ]]
+-- Indenting
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
 
--- don't auto commenting new lines
-cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true
+opt.mouse = "a"
 
--- remove line lenght marker for selected filetypes
-cmd [[autocmd FileType text,markdown,html,latex,tex setlocal cc=0]]
+-- disable nvim intro
+opt.shortmess:append("sI")
 
--- 2 spaces for selected filetypes
-cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,latex,tex,lua,yaml setlocal shiftwidth=2 tabstop=2
-]]
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
+opt.termguicolors = true
+opt.timeoutlen = 400
+opt.undofile = true
+
+opt.formatexpr = ""
+
+-- interval for writing swap file to disk, also used by gitsigns
+opt.updatetime = 250
+
+opt.backupdir = os.getenv("HOME") .. "/.config/nvim/.backup//"
+opt.directory = os.getenv("HOME") .. "/.config/nvim/.swap//"
+opt.undodir = os.getenv("HOME") .. "/.config/nvim/.undo//"
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+-- opt.whichwrap:append("<>[]hl")
 
 -- disable some builtin vim plugins
-local disabled_built_ins = {
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
+local default_plugins = {
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor",
+	"rplugin",
+	"syntax",
+	"synmenu",
+	"optwin",
+	"compiler",
+	"bugreport",
+	"ftplugin",
 }
 
-for _, plugin in pairs(disabled_built_ins) do
-   vim.g["loaded_" .. plugin] = 1
+for _, plugin in pairs(default_plugins) do
+	g["loaded_" .. plugin] = 1
 end
 
--- jupyter env
-vim.api.nvim_exec([[
-" Always use the same virtualenv for vim, regardless of what Python
-" environment is loaded in the shell from which vim is launched
-let g:vim_virtualenv_path = '$HOME/.env/py3_9/jupyter'
-if exists('g:vim_virtualenv_path')
-    pythonx import os; import vim
-    pythonx activate_this = os.path.join(vim.eval('g:vim_virtualenv_path'), 'bin/activate_this.py')
-    pythonx with open(activate_this) as f: exec(f.read(), {'__file__': activate_this})
-endif
+local default_providers = {
+	"node",
+	"perl",
+	"python3",
+	"ruby",
+}
 
-if has('nvim')
-    let g:python3_host_prog = '$HOME/.env/py3_9/jupyter/bin/python'
-else
-    set pyxversion=3
-endif
-]], true)
+for _, provider in ipairs(default_providers) do
+	vim.g["loaded_" .. provider .. "_provider"] = 0
+end

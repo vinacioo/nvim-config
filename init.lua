@@ -1,11 +1,6 @@
-require('plugins')
-require('settings')
-require('keybinds')
-
--- commands
-vim.cmd [[command! WhatHighlight :call util#syntax_stack()]]
-vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
-vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
-vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
-vim.cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
-vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
+require("plugins")
+require("colors.pallete")
+require("mappings")
+require("settings")
+require("autocmd")
+require("utils")
