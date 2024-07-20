@@ -1,0 +1,17 @@
+
+-- 	{
+-- 		"echasnovski/mini.starter",
+-- 		enabled,
+-- 		event = "VimEnter",
+-- 		opts = function()
+-- 			local function new_section(name, action, section)
+-- 				return { name = name, action = action, section = section }
+-- 			end
+-- 			local pad = string.rep(" ", 10)
+-- 			local starter = require("mini.starter")
+-- 			local config = {
+-- 				evaluate_single = false,
+-- 				header = randomhead(),
+-- 				items = {
+-- 					starter.sections.recent_files(5, true, true),
+-- 					new_section("Recent Files", "Telescope oldfiles", "Telescope"),
